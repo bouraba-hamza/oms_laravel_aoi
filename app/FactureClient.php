@@ -1,0 +1,24 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class FactureClient extends Model
+{
+
+    protected $fillable = [
+        'RefFacture',
+        'MontantHT',
+        'MontantTVA',
+        'MontantTTC',
+        'NotePublic',
+        'NotePriver',
+        'EtatFacture',
+        'DateEcheance',
+        'DateFacture',
+        'MontantReglement',
+        'FactureIntervention',
+        'ClientID'
+    ];
+}

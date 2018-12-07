@@ -1,0 +1,61 @@
+{
+    "fields": [
+        {
+            "name": "intervention__detail_id",
+            "type": "integer#unsigned"
+        },   
+       
+        {
+            "name": "installer_product_id",
+            "type": "integer#unsigned"
+        },
+         {
+            "name": "created_by",
+            "type": "integer#unsigned"
+         }
+       
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "created_by",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "intervention__detail_id",
+            "references": "id",
+            "on": "intervention__details",
+            "onDelete": "cascade"
+        },
+         {
+            "column": "installer_product_id",
+            "references": "id",
+            "on": "installer_product",
+            "onDelete": "cascade"
+        }
+        
+         
+    ],
+    "relationships": [
+        {
+            "name": "created_by",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        },
+         {
+            "name": "intervention__detail",
+            "type": "belongsTo",
+            "class": "App\\Models\\Interventiondetail"
+        },
+        
+        {
+            "name": "installer_product",
+            "type": "belongsTo",
+            "class": "App\\Models\\Installerproduct"
+        }
+              
+    ]
+   
+}

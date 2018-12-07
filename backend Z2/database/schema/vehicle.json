@@ -1,0 +1,57 @@
+{
+    "fields": [
+        {
+            "name": "matricule",
+            "type": "string"
+        },
+        {
+            "name": "marque",
+            "type": "string"
+        } ,
+        {
+            "name": "model",
+            "type": "string"
+        },
+         {
+            "name": "costumer_id",
+            "type": "integer#unsigned"
+        },
+                 
+        {
+            "name": "created_by",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "created_by",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+         {
+            "column": "costumer_id",
+            "references": "id",
+            "on": "costumers",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        }
+        ,{
+            "name": "costumer",
+            "type": "belongsTo",
+            "class": "App\\Models\\Costumer"
+        }
+    ],
+    "validations": [
+        {
+            "field": "matricule",
+            "rules": "required"
+        }
+    ]
+}

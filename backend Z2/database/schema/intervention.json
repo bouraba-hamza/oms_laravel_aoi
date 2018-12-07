@@ -1,0 +1,77 @@
+{
+    "fields": [
+       
+        {
+            "name": "intervened_at",
+            "type": "date"
+        } ,
+        {
+            "name": "observation",
+            "type": "string"
+        },      
+        {
+            "name": "status",
+            "type": "string"
+        },
+         {
+            "name": "responsible_validation",
+            "type": "string"
+        },
+        
+        {
+            "name": "costumer_id",
+            "type": "integer#unsigned"
+        },
+                
+         {
+            "name": "intervener_id",
+            "type": "integer#unsigned"
+         },
+         {
+            "name": "created_by",
+            "type": "integer#unsigned"
+         }      
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "created_by",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "intervener_id",
+            "references": "id",
+            "on": "installer",
+            "onDelete": "cascade"
+        },
+         {
+            "column": "costumer_id",
+            "references": "id",
+            "on": "costumer",
+            "onDelete": "cascade"
+        } 
+         
+    ],
+    "relationships": [
+        {
+            "name": "created_by",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        },
+         {
+            "name": "intervener_id",
+            "type": "belongsTo",
+            "class": "App\\Models\\Installer"
+        },
+        
+        {
+            "name": "costumer",
+            "type": "belongsTo",
+            "class": "App\\Models\\costumer"
+        }
+              
+    ]
+   
+}

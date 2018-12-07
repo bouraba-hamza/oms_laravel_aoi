@@ -1,0 +1,59 @@
+{
+    "fields": [
+        {
+            "name": "status",
+            "type": "string"
+        },
+                       
+        {
+            "name": "product_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "installer_id",
+            "type": "integer#unsigned"
+        },
+         {
+            "name": "created_by",
+            "type": "integer#unsigned"
+         }
+    ],
+    "foreign_keys": [
+        {
+            "column": "installer_id",
+            "references": "id",
+            "on": "installer",
+            "onDelete": "cascade"
+        },
+         {
+            "column": "created_by",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+         {
+            "column": "product_id",
+            "references": "id",
+            "on": "products",
+            "onDelete": "cascade"
+        }
+        
+        
+        
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        }
+        
+        ,{
+            "name": "product",
+            "type": "belongsTo",
+            "class": "App\\Models\\Product"
+        }
+       
+    ]
+   
+}

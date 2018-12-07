@@ -1,0 +1,56 @@
+{
+    "fields": [
+        {
+            "name": "intervention__detail_id",
+            "type": "integer#unsigned"
+        },   
+       
+        {
+            "name": "product_costumer",
+            "type": "string"
+        },
+        {
+            "name": "provider",
+            "type": "string"
+        },
+         {
+            "name": "created_by",
+            "type": "integer#unsigned"
+         }
+       
+
+    ],
+    "foreign_keys": [
+        {
+            "column": "created_by",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "intervention__detail_id",
+            "references": "id",
+            "on": "intervention__details",
+            "onDelete": "cascade"
+        },
+          
+        
+         
+    ],
+    "relationships": [
+        {
+            "name": "created_by",
+            "type": "belongsTo",
+            "class": "App\\Models\\User"
+        },
+         {
+            "name": "intervention__detail",
+            "type": "belongsTo",
+            "class": "App\\Models\\Interventiondetail"
+        }
+        
+        
+              
+    ]
+   
+}
