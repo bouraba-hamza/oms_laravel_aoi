@@ -78,7 +78,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-
+        Log::info($request);
         $credentials = $request->only('email', 'password');
 
         $rules = [
@@ -107,7 +107,6 @@ class AuthController extends Controller
 
         if(!is_null($check)) {
 
-
             $role =$check->fonction ;
             $user_id = $check->id ;
         }
@@ -115,7 +114,7 @@ class AuthController extends Controller
 
 
         // all good so return the token
-        return response()->json(['success' => true, 'data'=> [ 'token' => $token , 'role' =>$role,'user_id' =>$user_id]], 200);
+        return response()->json(['data'=> [ 'token' => $token , 'role' =>$role,'user_id' =>$user_id]], 200);
     }
 
     /**

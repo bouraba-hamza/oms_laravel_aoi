@@ -25,15 +25,6 @@ Route::get('interventionsNonFacture', 'FactureDetailInterventionController@index
 Route::post('interventionsNonFacture/arraychecked', 'FactureDetailInterventionController@checkedIntervention');
 Route::post('interventionsNonFacture/arraycheckedexiste/{id}', 'FactureDetailInterventionController@checkedInterventionexiste');
 
-Route::get('/', function(){
-    $command=DB::table('movements')->where ('category_id',2)->get();
-    dd($command);
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
-
-});
-
 
 //
 //    $command=DB::table('movements')->get();
@@ -185,9 +176,7 @@ Route::group(['middleware' => ['jwt']], function() {
 
 Route::get('/personals', 'personals\\PersonalController@index');
 Route::get('/personals/{id}', 'personals\\PersonalController@indexIntervention');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -209,9 +198,6 @@ Route::get('LigneFactureIntervention/{id}','LigneFactureClientController@indexLi
 Route::get('LigneFactureIntervention/calcule/{id}','LigneFactureClientController@FactureMontant');
 Route::post('LigneFactureIntervention/update','LigneFactureClientController@update');
 
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
 
 });
 
@@ -229,9 +215,7 @@ Route::post('/FactureClient/update', 'FactureClientController@update');
 Route::get('/FactureClient/calcule/{id}','FactureClientController@FactureMontant');
 Route::get('/FactureClient/{id}','FactureClientController@getFacture');
 Route::get('/FactureClient/client/{id}','FactureClientController@getFactureExiste');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -247,9 +231,7 @@ Route::post('DevisClient/add', 'DevisClientController@store');
 Route::post('/DevisClient/update', 'DevisClientController@update');
 Route::get('/DevisClient/calcule/{id}','DevisClientController@FactureMontant');
 Route::get('/DevisClient/{id}','DevisClientController@getFacture');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -263,9 +245,7 @@ Route::get('LigneFacture/','LigneFactureProviderController@index');
 Route::get('LigneFacture/{id}','LigneFactureProviderController@indexLigneFacture');
 Route::post('LigneFacture/add', 'LigneFactureProviderController@store');
 Route::delete('LigneFacture/del/{id}', 'LigneFactureProviderController@destroy');
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
+
 
 });
 
@@ -280,9 +260,7 @@ Route::get('LigneFactureClient/','LigneFactureClientController@index');
 Route::get('LigneFactureClient/{id}','LigneFactureClientController@indexLigneFacture');
 Route::post('LigneFactureClient/add', 'LigneFactureClientController@store');
 Route::delete('LigneFactureClient/del/{id}', 'LigneFactureClientController@destroy');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -295,9 +273,7 @@ Route::get('LigneDevisClient/','LigneDevisClientController@index');
 Route::get('LigneDevisClient/{id}','LigneDevisClientController@indexLigneFacture');
 Route::post('LigneDevisClient/add', 'LigneDevisClientController@store');
 Route::delete('LigneDevisClient/del/{id}', 'LigneDevisClientController@destroy');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -312,9 +288,7 @@ Route::post('ReglementProvider/add', 'ReglementProviderController@store');
 Route::delete('/ReglementProvider/del/{id}', 'ReglementProviderController@destroy');
 Route::get('/ReglementProvider/calcule/{id}','ReglementProviderController@ReglementFacture');
 Route::get('ReglementProvider/','ReglementProviderController@index');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -328,9 +302,7 @@ Route::delete('/ReglementClient/del/{id}', 'ReglementClientController@destroy');
 Route::post('ReglementClient/search', 'ReglementClientController@search');
 Route::get('/ReglementClient/calcule/{id}','ReglementClientController@ReglementFacture');
 Route::get('ReglementClient/','ReglementClientController@index');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -345,9 +317,7 @@ Route::post('/vehiculeAll', 'Vehicle\\VehiclesController@show');
 Route::post('/vehicule/add', 'Vehicle\\VehiclesController@store');
 Route::delete('/vehicule/del/{id}', 'Vehicle\\VehiclesController@destroy');
 Route::post('vehicule/update', 'Vehicle\\VehiclesController@update');
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -359,9 +329,6 @@ Route::post('installers', 'Installer\\InstallersController@store');
 Route::put('installers/{installer}', 'Installer\\InstallersController@update');
 Route::delete('installers/{installer}', 'Installer\\InstallersController@delete');
 
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
 
 });
 //Route::get('/Journalisation', 'Journalisation\\JournalisationController@indexService');
@@ -375,9 +342,6 @@ Route::post('SchemaVehicule/add', 'SchemaVehicule\\SchemaController@store');
 Route::delete('/SchemaVehicule/del/{id}', 'SchemaVehicule\\SchemaController@destroy');
 Route::post('SchemaVehicule/update', 'SchemaVehicule\\SchemaController@update');
 
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
 
 });
 
@@ -393,9 +357,6 @@ Route::post('TypesCustomer/add', 'TypesCustomer\\TypesCustomerController@store')
 Route::delete('/TypesCustomer/del/{id}', 'TypesCustomer\\TypesCustomerController@destroy');
 Route::post('TypesCustomer/update', 'TypesCustomer\\TypesCustomerController@update');
 
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
 
 });
 
@@ -406,9 +367,7 @@ Route::post('/personals/add', 'personnel\\personnelController@store');
 Route::delete('/personals/del/{id}', 'personnel\\personnelController@destroy');
 Route::post('personals/update', 'personnel\\personnelController@update');
 
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 
@@ -419,9 +378,7 @@ Route::get('/TypesProvider', 'TypesProvider\\TypesProviderController@index');
 Route::post('TypesProvider/add', 'TypesProvider\\TypesProviderController@store');
 Route::delete('/TypesProvider/del/{id}', 'TypesProvider\\TypesProviderController@destroy');
 Route::post('TypesProvider/update', 'TypesProvider\\TypesProviderController@update');
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
+
 
 });
 
@@ -433,9 +390,7 @@ Route::get('/TypesUtilisateur', 'TypesUtilisateur\\TypesUtilisateurController@in
 Route::post('TypesUtilisateur/add', 'TypesUtilisateur\\TypesUtilisateurController@store');
 Route::delete('/TypesUtilisateur/del/{id}', 'TypesUtilisateur\\TypesUtilisateurController@destroy');
 Route::post('TypesUtilisateur/update', 'TypesUtilisateur\\TypesUtilisateurController@update');
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
+
 
 });
 
@@ -445,9 +400,6 @@ Route::get('/Modele', 'Modele\\ModeleController@index');
 Route::post('Modele/add', 'Modele\\ModeleController@store');
 Route::delete('/Modele/del/{id}', 'Modele\\ModeleController@destroy');
 Route::post('Modele/update', 'Modele\\ModeleController@update');
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
 
 });
 
@@ -458,9 +410,7 @@ Route::post('Marque/add', 'Marque\\MarqueController@store');
 Route::delete('/Marque/del/{id}', 'Marque\\MarqueController@destroy');
 Route::post('Marque/update', 'Marque\\MarqueController@update');
 
-Route::get('test', function(){
-    return response()->json(['foo'=>'bar']);
-});
+
 
 });
 // Route::get('installerproducts', 'Installersproduct\\InstallersproductController@index');
@@ -489,9 +439,6 @@ Route::post('interventions/getBox', 'Intervention\\InterventionsController@getBo
 Route::get('interventions/movement/{categorie}', 'Intervention\\InterventionsController@getMovement');
 Route::get('interventions/plan/{categorie}', 'Intervention\\InterventionsController@getPlan');
 
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
 
 });
 
@@ -505,14 +452,12 @@ Route::post('recover', 'AuthController@recover');
 
 Route::group(['middleware' => ['jwt']], function() {
 
-    Route::get('utilisateur/', 'utilisateur\\UtilisateurController@index')->middleware('check_privileges')     ;
-    Route::post('utilisateur/add', 'utilisateur\\UtilisateurController@store' )->middleware('check_privileges')  ;
-    Route::delete('/utilisateur/del/{id}', 'utilisateur\\UtilisateurController@destroy')->middleware('check_privileges')  ;
-    Route::post('/utilisateur/update', 'utilisateur\\UtilisateurController@update')->middleware('check_privileges')  ;
+    Route::get('utilisateur/', 'utilisateur\\UtilisateurController@index')     ;
+    Route::post('utilisateur/add', 'utilisateur\\UtilisateurController@store' )  ;
+    Route::delete('/utilisateur/del/{id}', 'utilisateur\\UtilisateurController@destroy')  ;
+    Route::post('/utilisateur/update', 'utilisateur\\UtilisateurController@update')  ;
     Route::get('logout', 'AuthController@logout');
-    Route::get('test', function(){
-        return response()->json(['foo'=>'bar']);
-    });
+
 
 });
 
